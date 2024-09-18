@@ -19,10 +19,10 @@ const main = async () => {
   provider.http?.server.post(
     'send-message',
     handleCtx(async (bot, req, res) => {
-      const { message, mediaUrl } = req.body
-      console.log('mensahe', message, mediaUrl)
+      const { message, phone, mediaUrl } = req.body
+      console.log('message', message, mediaUrl)
 
-      await bot.sendMessage('9981815054', message, {
+      await bot.sendMessage(phone, message, {
         // media: mediaUrl
       })
       res.end('Mensaje desde el server')
